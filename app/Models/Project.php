@@ -13,6 +13,11 @@ class Project extends Model
 
     protected $fillable = ["title", "image", "text", "is_published"];
 
+    //relazione 1 a N con Type
+    public function type() {
+        return $this->hasMany(Type::class);
+    }
+
     //funzione per generare un abstract del text
     public function getAbstract($max=50) {
         return substr($this->text, 0, $max) . "...";
