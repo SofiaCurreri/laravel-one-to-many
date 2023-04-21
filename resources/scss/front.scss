@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: #333;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
