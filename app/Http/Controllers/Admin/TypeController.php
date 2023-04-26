@@ -20,7 +20,6 @@ class TypeController extends Controller
         $order = (!empty($order_request = $request->get('order'))) ? $order_request : "DESC";
         $types = Type::orderBy($sort, $order)->paginate(10)->withQueryString();
 
-        $types = Type::all();
         return view('admin.types.index', compact('types', 'sort', 'order'));
     }
 
