@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Http\Controllers\Controller;
 use App\Models\Type;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -40,7 +41,7 @@ class ProjectController extends Controller
     public function create()
     {
         $project = new Project;
-        $types = Type::all();        
+        $types = Type::orderBy('label')->get();        
         return view('admin.projects.form', compact('project', 'types'));
     }
 
@@ -107,7 +108,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $types = Type::all();
+        $types = Type::orderBy('label')->get();
         return view('admin.projects.form', compact('project', 'types'));
     }
 
