@@ -75,9 +75,9 @@
                             <td>{{$type->created_at}}</td>
                             <td>{{$type->updated_at}}</td>
                             <td class="d-flex justify-content-end">
-                                <a href="{{route('admin.types.show', $type)}}">
+                                {{-- <a href="{{route('admin.types.show', $type)}}">
                                     <i class="bi bi-eye mx-2"></i>
-                                </a>   
+                                </a>    --}}
                                 
                                 <a href="{{route('admin.types.edit', $type)}}">
                                     <i class="bi bi-pencil mx-2"></i>
