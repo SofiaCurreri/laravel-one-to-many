@@ -28,6 +28,10 @@
                             @endif
                         </a> 
                       </th>
+
+                      <th scope="col">
+                        Tipo
+                      </th>
                       
                       <th scope="col">
                         <a href="{{route('admin.projects.index')}}? sort=title&order={{$sort == 'title' && $order != 'DESC' ? 'DESC' : 'ASC' }}">
@@ -73,6 +77,7 @@
                         <tr>
                             <th scope="row">{{$project->id}}</th>
                             <td>{{$project->title}}</td>
+                            <td>{{$project->type?->label}}</td>
                             <td>{{$project->getAbstract(20)}}</td>
                             <td>{{$project->created_at}}</td>
                             <td>{{$project->updated_at}}</td>
