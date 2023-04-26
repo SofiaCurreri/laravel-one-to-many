@@ -15,7 +15,7 @@ class Project extends Model
 
     //relazione 1 a N con Type
     public function type() {
-        return $this->hasMany(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     //funzione per generare un abstract del text
