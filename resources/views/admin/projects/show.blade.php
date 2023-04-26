@@ -10,14 +10,10 @@
 @section('content')
     <section class="card clearfix">
         <div class="card-body">
-            <p>
-                <strong>Tipo: </strong>
-                {{$project->type?->label}}
-            </p>
-
+            
             {{-- Il '?' equivale a "Se c' è un tipo allora mostrami il suo "label" --}}
             {{-- @dump($project->type?->label) --}}
-
+            
             <figure class="float-end ms-5 mb-3">
                 {{-- asset() parte di default da public --}}
                 <img src="{{$project->getImageUri()}}" alt="{{$project->slug}}" width="300px">
@@ -25,6 +21,11 @@
                     {{$project->slug}}
                 </figcaption>
             </figure>
+            <p>
+                <strong>Tipo: </strong>
+                <span class="badge rounded-pill" style="background-color:{{$project->type?->color}}">{{$project->type?->label}}</span>
+            </p>
+            
             <p>
                 <strong>Contenuto: </strong>
                 {{$project->text}}
