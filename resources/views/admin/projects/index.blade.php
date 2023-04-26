@@ -29,17 +29,18 @@
                         </a> 
                       </th>
 
-                      <th scope="col">
-                        Tipo
-                      </th>
                       
                       <th scope="col">
-                        <a href="{{route('admin.projects.index')}}? sort=title&order={{$sort == 'title' && $order != 'DESC' ? 'DESC' : 'ASC' }}">
+                          <a href="{{route('admin.projects.index')}}? sort=title&order={{$sort == 'title' && $order != 'DESC' ? 'DESC' : 'ASC' }}">
                             Titolo
                             @if ($sort == 'title')
-                                <i class="bi bi-arrow-down d-inline-block @if ($order == 'DESC') rotate-180 @endif"></i>
+                            <i class="bi bi-arrow-down d-inline-block @if ($order == 'DESC') rotate-180 @endif"></i>
                             @endif
                         </a>
+                      </th>
+                       
+                      <th scope="col">
+                        Tipo
                       </th>
                       
                       <th scope="col">
