@@ -9,8 +9,11 @@
 
 @section('content')
     <section class="card clearfix">
-        <div class="card-body d-flex justify-content-between">
-            <p class="">{{$project->text}}</p>
+        <div class="card-body">
+            <p>
+                <strong>Tipo: </strong>
+                {{$project->type?->label}}
+            </p>
 
             {{-- Il '?' equivale a "Se c' è un tipo allora mostrami il suo "label" --}}
             {{-- @dump($project->type?->label) --}}
@@ -22,6 +25,10 @@
                     {{$project->slug}}
                 </figcaption>
             </figure>
+            <p>
+                <strong>Contenuto: </strong>
+                {{$project->text}}
+            </p>
         </div>
         
     </section>
