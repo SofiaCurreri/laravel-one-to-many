@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +30,18 @@ Route::middleware('auth')
     ->group(
         function() {       
             //L'ordine delle Route qui è importante   
+
+            //soft deletes e trash per projects resource
             Route::get('/projects/trash', [ProjectController::class, 'trash'])->name('projects.trash');
             Route::put('/projects/{project}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
             Route::delete('/projects/{project}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
             
+            //projects resource
             Route::resource('projects', ProjectController::class)
                 ->parameters(['projects' => 'project:slug']); //così per tutta la risorsa si usa slug al posto dell' id (va bene solo se slug è unico). Per risorsa projects usi slug di project(singolare)
+
+            //types resource
+            Route::resource('types', TypeController::class);
         }
     );
 
