@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -39,6 +40,7 @@ class ProjectController extends Controller
     public function create()
     {
         $project = new Project;
+        $types = Type::all();        
         return view('admin.projects.form', compact('project'));
     }
 
@@ -94,6 +96,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $types = Type::all();
         return view('admin.projects.show', compact('project'));
     }
 
