@@ -22,11 +22,12 @@
             @auth
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home') }}">{{ __('Home') }}</a>
+                        {{-- L' asterisco sta ad indicare "tutte le rotte che cominciano con admin.projects" --}}
+                        <a class="nav-link @if (request()->routeIs('admin.projects*')) active @endif" href="{{route('admin.projects.index') }}">{{ __('Projects') }}</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link  @if (request()->routeIs('admin.types*')) active @endif" href="{{route('admin.types.index') }}">{{ __('Tipologie') }}</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.projects.index') }}">{{ __('Projects') }}</a>
-                    </li> --}}
                 </ul>
             @endauth
 
@@ -35,11 +36,11 @@
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link @if (request()->routeIs('login')) active @endif" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link  @if (request()->routeIs('register')) active @endif" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
                 @else
@@ -50,7 +51,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         {{-- <a class="dropdown-item" href="{{ route('home') }}">{{__('Dashboard')}}</a> --}}
-                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{__('Profile')}}</a>
+                        <a class="dropdown-item  @if (request()->routeIs('profile')) active @endif" href="{{ route('profile.edit') }}">{{__('Profile')}}</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
