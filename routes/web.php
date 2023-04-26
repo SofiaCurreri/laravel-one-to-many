@@ -41,7 +41,7 @@ Route::middleware('auth')
                 ->parameters(['projects' => 'project:slug']); //così per tutta la risorsa si usa slug al posto dell' id (va bene solo se slug è unico). Per risorsa projects usi slug di project(singolare)
 
             //types resource
-            Route::resource('types', TypeController::class);
+            Route::resource('types', TypeController::class)->except(['show']);
         }
     );
 
