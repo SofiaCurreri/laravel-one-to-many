@@ -59,6 +59,8 @@ class ProjectController extends Controller
             'title' => 'required|string|max:100',
             'text' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,png,jpeg',
+            'is_published' => 'boolean',
+            'type_id' => 'nullable|exists:types,id'
         ], 
         [
             'title.required' => 'Il titolo è obbligatorio',
@@ -70,6 +72,8 @@ class ProjectController extends Controller
 
             'image.image' => 'Il file caricato deve essere un\'immagine',
             'image.mimes' => 'Le estensioni accettate per l\' immagine sono jpg, png, jpeg',
+
+            'type_id.exists' => 'L\' id della categoria non è valido'
         ]);
 
         $data = $request->all(); //per non scrivere $request->all() per intero ogni volta
@@ -127,6 +131,7 @@ class ProjectController extends Controller
             'text' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,png,jpeg',
             'is_published' => 'boolean',
+            'type_id' => 'nullable|exists:types,id'
         ], 
         [
             'title.required' => 'Il titolo è obbligatorio',
@@ -138,6 +143,8 @@ class ProjectController extends Controller
 
             'image.image' => 'Il file caricato deve essere un\'immagine',
             'image.mimes' => 'Le estensioni accettate per l\' immagine sono jpg, png, jpeg',
+
+            'type_id.exists' => 'L\' id della categoria non è valido'
         ]);
 
         $data = $request->all(); //per non scrivere $request->all() per intero ogni volta
