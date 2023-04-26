@@ -11,7 +11,7 @@ class Project extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ["title", "image", "text", "is_published"];
+    protected $fillable = ["type_id", "title", "image", "text", "is_published"];
 
     //relazione 1 a N con Type
     public function type() {
