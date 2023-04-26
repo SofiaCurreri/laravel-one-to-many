@@ -60,7 +60,7 @@ class TypeController extends Controller
         $type->fill($request->all());
         $type->save();
 
-        return to_route('admin.types.show')
+        return to_route('admin.types.index')
             ->with('message_content', "Tipo $type->id creato con successo");
     }
 
@@ -71,7 +71,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('admin.types.show', compact('type'));
+        return view('admin.types.index', compact('type'));
     }
 
     /**
@@ -107,7 +107,7 @@ class TypeController extends Controller
 
         $type->update($request->all());
 
-        return to_route('admin.types.show')
+        return to_route('admin.types.index')
             ->with('message_type', "danger")
             ->with('message_content', "Tipo $type->id modificato con successo");
     }

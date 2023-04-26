@@ -42,6 +42,12 @@
                             @endif
                         </a>
                       </th>
+
+                      <th scope="col">
+                        <a href="{{route('admin.types.index')}}? sort=color&order={{$sort == 'color' && $order != 'DESC' ? 'DESC' : 'ASC' }}">
+                            Pill
+                        </a>
+                      </th>
                      
                       <th scope="col">
                         <a href="{{route('admin.types.index')}}? sort=created_at&order={{$sort == 'created_at' && $order != 'DESC' ? 'DESC' : 'ASC' }}">
@@ -69,9 +75,10 @@
                         <tr>
                             <th scope="row">{{$type->id}}</th>
                             <td>{{$type->label}}</td>
+                            <td>{{$type->color}}</td>
                             <td>
-                                <span class="rounded-circle color-preview" style="background-color: {{$type->color}}"></span>
-                                {{$type->color}}</td>
+                                <span class="badge rounded-pill" style="background-color:{{$type->color}}">{{$type->label}}</span>
+                            </td>
                             <td>{{$type->created_at}}</td>
                             <td>{{$type->updated_at}}</td>
                             <td class="d-flex justify-content-end">
