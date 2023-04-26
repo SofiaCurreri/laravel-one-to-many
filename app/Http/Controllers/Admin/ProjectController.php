@@ -41,7 +41,7 @@ class ProjectController extends Controller
     {
         $project = new Project;
         $types = Type::all();        
-        return view('admin.projects.form', compact('project'));
+        return view('admin.projects.form', compact('project', 'types'));
     }
 
     /**
@@ -96,7 +96,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $types = Type::all();
         return view('admin.projects.show', compact('project'));
     }
 
@@ -108,7 +107,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.form', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.form', compact('project', 'types'));
     }
 
     /**
