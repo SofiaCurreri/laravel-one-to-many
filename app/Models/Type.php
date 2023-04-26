@@ -9,7 +9,7 @@ class Type extends Model
 {
     use HasFactory;
 
-    //relazione 1 a N con Project
+    //relazione 1(type) a N(projects) con Type
     public function projects() {
         return $this->hasMany(Project::class);
     }

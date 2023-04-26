@@ -13,7 +13,7 @@ class Project extends Model
 
     protected $fillable = ["type_id", "title", "image", "text", "is_published"];
 
-    //relazione 1 a N con Type
+    //relazione 1(type) a N(projects) con Type
     public function type() {
         return $this->belongsTo(Type::class);
     }
