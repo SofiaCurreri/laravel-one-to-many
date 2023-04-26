@@ -42,6 +42,20 @@
 
                     <div class="row mb-3">
                         <div class="col-md-2 text-end">
+                            <label for="title" class="form-label">Categoria</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select class="form-select">
+                                <option value="">Non categorizzato</option>
+                                @foreach ($types as $type)                      
+                                    <option value="{{$type->id}}">{{$type->label}}</option>
+                                @endforeach
+                              </select>
+                        </div>
+                    </div> 
+
+                    <div class="row mb-3">
+                        <div class="col-md-2 text-end">
                             <label for="is_published" class="form-label">Pubblicato</label>
                         </div>
                         <div class="col-md-10">

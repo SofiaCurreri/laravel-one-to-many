@@ -11,6 +11,10 @@
     <section class="card clearfix">
         <div class="card-body d-flex justify-content-between">
             <p class="">{{$project->text}}</p>
+
+            {{-- Il '?' equivale a "Se c' è un tipo allora mostrami il suo "label" --}}
+            {{-- @dump($project->type?->label) --}}
+
             <figure class="float-end ms-5 mb-3">
                 {{-- asset() parte di default da public --}}
                 <img src="{{$project->getImageUri()}}" alt="{{$project->slug}}" width="300px">
